@@ -1,0 +1,78 @@
+<div class="clase">
+  <div class="flex-agregar-boton">
+    <h2>Lista de Clases</h2>
+    <button class="boton-tabla agregar"
+            (click)="handleAgregarClick()"
+            tabindex="0"
+            (keydown.enter)="handleAgregarClick()"
+            (keydown.space)="handleAgregarClick()">
+      <i class="fa fa-plus"></i>
+      Agregar
+    </button>
+  </div>
+  <div class="flex-tabla">
+    <table class="usuario-tabla">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="clases.length === 0">
+          <td colspan="3" style="text-align: center; padding: 1rem;">No hay clases (todavía)</td>
+        </tr>
+        <tr *ngFor="let clase of clases">
+          <td class="id">{{ clase.id }}</td>
+          <td>{{ clase.nombre }}</td>
+          <td class="acciones">
+            <i class="fa fa-pen icon-action"
+               tabindex="0"
+               (click)="handleUpdate(clase.id, clase.nombre)"
+               (keydown.enter)="handleUpdate(clase.id, clase.nombre)"
+               (keydown.space)="handleUpdate(clase.id, clase.nombre)">
+            </i>
+            <i class="fa fa-trash icon-action"
+               tabindex="0"
+               (click)="handleDelete(clase.id)"
+               (keydown.enter)="handleDelete(clase.id)"
+               (keydown.space)="handleDelete(clase.id)">
+            </i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="showModal" class="modal">
+    <div class="modal-content">
+      <span class="close-icon"
+            (click)="handleCloseModal()"
+            tabindex="0"
+            (keydown.enter)="handleCloseModal()"
+            (keydown.space)="handleCloseModal()">
+        <i class="fa fa-times"></i>
+      </span>
+      <h3>{{ isAddOrUpdate ? 'Agregar' : 'Actualizar' }} Curso</h3>
+      <div class="agregar-inputs">
+        <div class="agregar-nombre">
+          <label for="nombre">Nombre</label>
+          <input id="nombre"
+                 type="text"
+                 [value]="nombre"
+                 (input)="handleNombreChange($event)" />
+        </div>
+      </div>
+      <div class="modal-buttons">
+        <button *ngIf="isAddOrUpdate" (click)="handleAceptarClick()">Agregar</button>
+        <button *ngIf="!isAddOrUpdate" (click)="handleAceptarClick()">Actualizar</button>
+        <button (click)="handleCloseModal()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="perrito">
+  <img src="assets/perrito.gif" alt="Scrolling GIF" class="gif" />
+</div>

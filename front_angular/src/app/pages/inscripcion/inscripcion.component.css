@@ -1,0 +1,272 @@
+.inscripcion {
+  margin: 1rem;;
+  font-family: 'Roboto', sans-serif;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+}
+
+.combo-box {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.combo-box option {
+  display: flex;
+  justify-content: space-between;
+}
+
+.combo-box option .name {
+  text-align: left;
+}
+
+.courses-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 1rem;
+}
+
+.courses-table th, .courses-table td {
+  padding: 0.5rem 1rem;
+}
+
+.courses-table th {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}
+
+.courses-table td {
+  text-align: center;
+}
+
+.courses-table .actions {
+  display: flex;
+  justify-content: center;
+}
+
+.courses-table .actions button {
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.courses-table .actions button:hover {
+  background-color: #45a049;
+}
+
+.courses-table .actions button.desinscribir {
+  background-color: #f44336;
+}
+
+.courses-table .actions button.desinscribir:hover {
+  background-color: #da190b;
+}
+
+.mensaje {
+  text-align: center;
+  margin: 1rem;
+}
+
+
+.boton-tabla{
+  font-family: 'Roboto', sans-serif;
+  padding: 10px 20px;
+  border: 2px solid black;
+  border-radius: 50px;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0.5rem;
+}
+
+.boton-tabla:hover {
+  background-color: black;
+  color: white;
+}
+
+.perrito {
+  background-color: #F5F5F5;
+  white-space: nowrap;
+  width: 100%;
+  position: relative;
+}
+
+.gif {
+  display: inline-block;
+  height: 10rem;
+  animation: scroll-right 5s linear infinite;
+}
+
+@keyframes scroll-right {
+0% {
+  transform: translateX(-250%);
+}
+100% {
+  transform: translateX(440%);
+}
+}
+
+
+.usuario-tabla {
+  width: 100vh;
+  border-collapse: separate;
+  border-spacing: 1rem;
+}
+
+.usuario-tabla th, .usuario-tabla td {
+  padding: 0.5rem 1rem;
+}
+
+.usuario-tabla th {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}
+
+.icon-action {
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.icon-action:hover {
+  color: blue;
+}
+
+.id,
+.acciones{
+  display: flex;
+  justify-content: center;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.agregar-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.agregar-inputs input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.agregar-nombre,
+.agregar-email,
+.agregar-password{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5) !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-icon:hover {
+    color: #000;
+}
+
+.modal-label {
+    margin-bottom: 5px;
+}
+
+.modal-input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.modal-buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.modal-buttons-error {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.modal-buttons button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+.modal-buttons-error button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: gray;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.modal-buttons button:hover {
+    background-color: #45a049;
+}
+
+.modal-buttons button:last-child {
+    background-color: #f44336;
+}
+
+.modal-buttons button:last-child:hover {
+    background-color: #da190b;
+}
+
+
+.modal-buttons-error button:last-child {
+  background-color: #f44336;
+}
+
+.modal-buttons-error button:last-child:hover {
+    background-color: #da190b;
+}

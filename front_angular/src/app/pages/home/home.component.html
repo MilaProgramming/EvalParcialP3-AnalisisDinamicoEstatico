@@ -1,0 +1,12 @@
+<div class="grid-principal">
+  <div class="botones-nivel1">
+    <button class="boton-tabla" (click)="setTabla('usuario')">Usuarios</button>
+    <button class="boton-tabla" (click)="setTabla('curso')">Cursos</button>
+    <button class="boton-tabla" (click)="setTabla('inscripcion')">Inscripcion</button>
+  </div>
+  <div class="contenido-2">
+    <app-usuario *ngIf="tabla === 'usuario'"></app-usuario>
+    <app-clase *ngIf="tabla === 'curso'"></app-clase>
+    <app-inscripcion *ngIf="tabla === 'inscripcion'"></app-inscripcion>
+  </div>
+</div>

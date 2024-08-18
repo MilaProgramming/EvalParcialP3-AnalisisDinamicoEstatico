@@ -1,0 +1,92 @@
+<div class="usuario">
+  <div class="flex-agregar-boton">
+    <h2>Lista de Usuarios</h2>
+    <button class="boton-tabla agregar" (click)="handleAgregarClick()" tabindex="0" aria-label="Agregar Usuario">
+      <i class="fa fa-plus icon" aria-hidden="true"></i> Agregar
+    </button>
+  </div>
+  <div class="flex-tabla">
+    <table class="usuario-tabla">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>E-mail</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="usuarios.length === 0">
+          <td colspan="4" style="text-align: center; padding: 1rem;">No hay usuarios (todavía)</td>
+        </tr>
+        <tr *ngFor="let usuario of usuarios" [attr.key]="usuario.id">
+          <td class="id">{{ usuario.id }}</td>
+          <td>{{ usuario.nombre }}</td>
+          <td>{{ usuario.email }}</td>
+          <td class="acciones">
+            <span tabindex="0" [attr.aria-label]="'Actualizar Usuario ' + usuario.nombre"
+            (click)="handleUpdate(usuario.id, usuario.nombre, usuario.email)"
+            (keydown.enter)="handleUpdate(usuario.id, usuario.nombre, usuario.email)"
+            (keydown.space)="handleUpdate(usuario.id, usuario.nombre, usuario.email)">
+              <i class="fa fa-pen icon-action"></i>
+            </span>
+            <span tabindex="0" [attr.aria-label]="'Eliminar Usuario ' + usuario.nombre"
+            (click)="handleDelete(usuario.id)"
+            (keydown.enter)="handleDelete(usuario.id)"
+            (keydown.space)="handleDelete(usuario.id)">
+              <i class="fa fa-trash icon-action"></i>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="showModal" class="modal">
+    <div class="modal-content">
+      <span class="close-icon" (click)="handleCloseModal()" tabindex="0" aria-label="Cerrar Modal"
+      (keydown.enter)="handleCloseModal()"
+      >×</span>
+      <h3>{{ isAddOrUpdate ? 'Agregar' : 'Actualizar' }} Usuario</h3>
+      <div class="agregar-inputs">
+        <div class="agregar-nombre">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" type="text" [(ngModel)]="nombre" />
+        </div>
+        <div class="agregar-email">
+          <label for="email">Email</label>
+          <input id="email" type="text" [(ngModel)]="email" />
+        </div>
+        <div class="agregar-password">
+          <label for="password">Contraseña</label>
+          <input id="password" type="password" [(ngModel)]="password" (input)="checkPasswordMatch()" />
+        </div>
+        <div class="agregar-password">
+          <label for="confirmPassword">Confirma contraseña</label>
+          <input id="confirmPassword" type="password" [(ngModel)]="confirmPassword" (input)="checkPasswordMatch()" />
+        </div>
+        <p *ngIf="!passwordMatch" class="error">Las contraseñas no coinciden</p>
+      </div>
+      <div [ngClass]="{ 'modal-buttons': passwordMatch, 'modal-buttons-error': !passwordMatch }">
+        <button (click)="handleAceptarClick()" [disabled]="!passwordMatch">
+          {{ isAddOrUpdate ? 'Agregar' : 'Actualizar' }}
+        </button>
+        <button class="cancelar" (click)="handleCloseModal()" tabindex="0" aria-label="Cancelar">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showModalWarning" class="modal">
+    <div class="modal-content">
+      <span class="close-icon" (click)="handleCloseModal()" tabindex="0" aria-label="Cerrar Modal"
+      (keydown.enter)="handleCloseModal()"
+      >×</span>
+      <h1>Error</h1>
+      <p>No se pudo eliminar el usuario</p>
+    </div>
+  </div>
+</div>
+
+<div class="perrito">
+  <img src="assets/perrito.gif" alt="Scrolling GIF" class="gif" />
+</div>
